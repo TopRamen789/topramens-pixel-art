@@ -4,7 +4,7 @@ set -m
 export aseprite="/mnt/c/Program Files (x86)/Steam/steamapps/common/Aseprite"
 find . -type f -name '*.aseprite' -print0 | while IFS= read -r -d '' file; do
 	echo "$file"
-    "$aseprite"/aseprite.exe -b "${file}" --save-as "${file/.aseprite/.png}"
+    "$aseprite"/aseprite.exe -b "${file}" --scale 5 --save-as "${file/.aseprite/.png}"
 done
 # Add newly converted pngs to the commit
 if [ -e .commit ]
